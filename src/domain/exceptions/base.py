@@ -1,0 +1,6 @@
+class DomainError(Exception):
+    ...
+
+
+class DomainTypeError(Exception):
+    ...
