@@ -1,7 +1,7 @@
 from dataclasses import dataclass
-from uuid import UUID
+from decimal import Decimal
 
 
 @dataclass(frozen=True, slots=True)
-class ClientId:
-    value: UUID
+class OrderTotalPrice:
+    value: Decimal

@@ -1,7 +1,7 @@
-from src.domain.entities.client import Client
+from src.domain.entities.customer import Customer
 from src.domain.ports.client_id_generator import ClientIdGenerator
-from src.domain.value_objects.client_address import ClientAddress
-from src.domain.value_objects.client_name import ClientName
+from src.domain.value_objects.customer_address import CustomerAddress
+from src.domain.value_objects.customer_name import CustomerName
 
 
 class ClientService:
@@ -10,12 +10,12 @@ class ClientService:
 
     def create_client(
         self,
-        name: ClientName | None,
-        address: ClientAddress | None,
-    ) -> Client:
+        name: CustomerName | None,
+        address: CustomerAddress | None,
+    ) -> Customer:
         client_id = self._client_id_generator.generate()
 
-        return Client(
+        return Customer(
             id_=client_id,
             name=name,
             address=address,

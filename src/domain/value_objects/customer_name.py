@@ -5,7 +5,7 @@ from src.domain.exceptions.base import DomainTypeError
 
 
 @dataclass(frozen=True, slots=True)
-class ClientName:
+class CustomerName:
     MIN_LEN: ClassVar[Final[int]] = 5
     MAX_LEN: ClassVar[Final[int]] = 32
 
