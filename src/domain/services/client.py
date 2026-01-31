@@ -1,5 +1,5 @@
 from src.domain.entities.customer import Customer
-from src.domain.ports.client_id_generator import ClientIdGenerator
+from src.domain.ports.customer_id_generator import ClientIdGenerator
 from src.domain.value_objects.customer_address import CustomerAddress
 from src.domain.value_objects.customer_name import CustomerName
 

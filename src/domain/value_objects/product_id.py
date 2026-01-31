@@ -3,5 +3,5 @@ from uuid import UUID
 
 
 @dataclass(frozen=True, slots=True)
-class NomenclatureId:
+class ProductId:
     value: UUID

@@ -3,5 +3,5 @@ from decimal import Decimal
 
 
 @dataclass(frozen=True, slots=True)
-class NomenclaturePrice:
+class ProductPrice:
     value: Decimal
