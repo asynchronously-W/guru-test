@@ -6,8 +6,8 @@ from src.domain.exceptions.base import DomainTypeError
 
 @dataclass(frozen=True, slots=True)
 class ProductName:
-    MIN_LEN: ClassVar[Final[int]]
-    MAX_LEN: ClassVar[Final[int]]
+    MIN_LEN: ClassVar[Final[int]] = 5
+    MAX_LEN: ClassVar[Final[int]] = 255
 
     value: str
 
