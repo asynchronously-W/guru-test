@@ -7,8 +7,7 @@ from src.domain.value_objects.order_line_id import OrderLineId
 from src.domain.value_objects.order_line_quantity import OrderLineQuantity
 from src.domain.value_objects.product_id import ProductId
 from src.domain.value_objects.product_name import ProductName
-from src.domain.value_objects.product_price import ProductPrice
-from src.infrastructure.registry import mapper_registry
+from src.infrastructure.persistence_sqla.registry import mapper_registry
 
 order_lines_table = sa.Table(
     "order_lines",

@@ -4,7 +4,7 @@ from sqlalchemy.orm import composite
 from src.domain.entities.catalog import Catalog
 from src.domain.value_objects.catalog_id import CatalogId
 from src.domain.value_objects.catalog_name import CatalogName
-from src.infrastructure.registry import mapper_registry
+from src.infrastructure.persistence_sqla.registry import mapper_registry
 
 catalogs_table = sa.Table(
     "catalogs",

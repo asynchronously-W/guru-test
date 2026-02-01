@@ -5,7 +5,7 @@ from src.domain.entities.customer import Customer
 from src.domain.value_objects.customer_address import CustomerAddress
 from src.domain.value_objects.customer_id import CustomerId
 from src.domain.value_objects.customer_name import CustomerName
-from src.infrastructure.registry import mapper_registry
+from src.infrastructure.persistence_sqla.registry import mapper_registry
 
 customers_table = sa.Table(
     "customers",
