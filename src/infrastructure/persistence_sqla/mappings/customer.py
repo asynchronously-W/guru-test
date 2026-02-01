@@ -10,7 +10,7 @@ from src.infrastructure.persistence_sqla.registry import mapper_registry
 customers_table = sa.Table(
     "customers",
     mapper_registry.metadata,
-    sa.Column("id", sa.Uuid(as_uuid=True), primary_key=True),
+    sa.Column("id", sa.UUID(as_uuid=True), primary_key=True),
     sa.Column("name", sa.String(CustomerName.MAX_LEN), nullable=True),
     sa.Column("address", sa.String(CustomerAddress.MAX_LEN), nullable=True)
 )

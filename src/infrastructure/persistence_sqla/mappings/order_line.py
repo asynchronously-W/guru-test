@@ -12,10 +12,10 @@ from src.infrastructure.persistence_sqla.registry import mapper_registry
 order_lines_table = sa.Table(
     "order_lines",
     mapper_registry.metadata,
-    sa.Column("id", sa.Uuid(as_uuid=True), primary_key=True),
+    sa.Column("id", sa.UUID(as_uuid=True), primary_key=True),
     sa.Column("quantity", sa.Integer(), nullable=False),
-    sa.Column("order_id", sa.Uuid(as_uuid=True), nullable=False),
-    sa.Column("product_id", sa.Uuid(as_uuid=True), nullable=False),
+    sa.Column("order_id", sa.UUID(as_uuid=True), nullable=False),
+    sa.Column("product_id", sa.UUID(as_uuid=True), nullable=False),
     sa.Column("product_name_snapshot", sa.String(ProductName.MAX_LEN), nullable=False),
 )
 

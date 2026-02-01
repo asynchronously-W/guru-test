@@ -9,9 +9,9 @@ from src.infrastructure.persistence_sqla.registry import mapper_registry
 catalogs_table = sa.Table(
     "catalogs",
     mapper_registry.metadata,
-    sa.Column("id", sa.Uuid(as_uuid=True), primary_key=True),
+    sa.Column("id", sa.UUID(as_uuid=True), primary_key=True),
     sa.Column("name", sa.String(CatalogName.MAX_LEN), nullable=False),
-    sa.Column("parent_id", sa.Uuid(as_uuid=True), nullable=True),
+    sa.Column("parent_id", sa.UUID(as_uuid=True), nullable=True),
 )
 
 
