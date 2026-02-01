@@ -6,9 +6,15 @@ from src.domain.value_objects.order_total_price import OrderTotalPrice
 
 
 class Order(Entity[OrderId]):
-    def __init__(self, id_: OrderId, client_id: CustomerId, status: OrderStatus, total_price: OrderTotalPrice) -> None:
+    def __init__(
+        self,
+        id_: OrderId,
+        customer_id: CustomerId,
+        status: OrderStatus,
+        total_price: OrderTotalPrice | None,
+    ) -> None:
         super().__init__(id_)
 
-        self.client_id = client_id
+        self.customer_id = customer_id
         self.status = status
         self.total_price = total_price
