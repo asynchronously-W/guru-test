@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 
 from dishka import make_async_container, AsyncContainer
 from fastapi import FastAPI
+from fastapi.responses import ORJSONResponse
 
 from src.infrastructure.persistence_sqla.mappings.all import map_tables
 from src.presentation.http.controllers.root_router import create_root_router
@@ -18,6 +19,7 @@ def create_ioc_container(settings: AppSettings) -> AsyncContainer:
 def create_web_app() -> FastAPI:
     app = FastAPI(
         lifespan=lifespan,
+        default_response_class=ORJSONResponse,
     )
 
     app.include_router(create_root_router())
