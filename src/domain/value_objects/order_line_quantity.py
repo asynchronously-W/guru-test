@@ -9,11 +9,11 @@ class OrderLineQuantity:
 
     def __post_init__(self) -> None:
         """:raises DomainTypeError:"""
-        self._validate_non_negative(self.value)
+        self._validate_greater_than_zero(self.value)
 
-    def _validate_non_negative(self, quantity_value: int) -> None:
+    def _validate_greater_than_zero(self, quantity_value: int) -> None:
         """:raises DomainTypeError:"""
-        if quantity_value < 0:
+        if quantity_value <= 0:
             raise DomainTypeError(
-                "Quantity must be non-negative value."
+                "Quantity must be greater than 0."
             )

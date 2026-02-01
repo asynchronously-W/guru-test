@@ -10,6 +10,13 @@ class OrderLineService:
     def __init__(self, order_line_id_generator: OrderLineIdGenerator) -> None:
         self._order_line_id_generator = order_line_id_generator
 
+    def change_quantity(
+        self,
+        order_line: OrderLine,
+        quantity: OrderLineQuantity,
+    ) -> None:
+        order_line.quantity = quantity
+
     def create_order_line(
         self,
         quantity: OrderLineQuantity,
