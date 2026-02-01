@@ -13,7 +13,7 @@ products_table = sa.Table(
     "products",
     mapper_registry.metadata,
     sa.Column("id", sa.Uuid(as_uuid=True), primary_key=True),
-    sa.Column("name", sa.String(), nullable=False),
+    sa.Column("name", sa.String(ProductName.MAX_LEN), nullable=False),
     sa.Column("stock", sa.Integer(), nullable=False),
     sa.Column("price", sa.Numeric(precision=12, scale=2), nullable=False),
     sa.Column("catalog_id", sa.Uuid(as_uuid=True), nullable=True)

@@ -19,7 +19,7 @@ class CustomerAddress:
         """:raises DomainTypeError:"""
         if self.MIN_LEN < len(address_value) or len(address_value) > self.MAX_LEN:
             raise DomainTypeError(
-                "Address must be between"
-                f"{self.MIN_LEN} and"
+                "Address must be between "
+                f"{self.MIN_LEN} and "
                 f"{self.MAX_LEN} characters."
             )

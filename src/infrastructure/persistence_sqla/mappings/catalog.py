@@ -10,7 +10,7 @@ catalogs_table = sa.Table(
     "catalogs",
     mapper_registry.metadata,
     sa.Column("id", sa.Uuid(as_uuid=True), primary_key=True),
-    sa.Column("name", sa.String(), nullable=False),
+    sa.Column("name", sa.String(CatalogName.MAX_LEN), nullable=False),
     sa.Column("parent_id", sa.Uuid(as_uuid=True), nullable=True),
 )
 

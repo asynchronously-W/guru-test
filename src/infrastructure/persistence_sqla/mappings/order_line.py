@@ -16,7 +16,7 @@ order_lines_table = sa.Table(
     sa.Column("quantity", sa.Integer(), nullable=False),
     sa.Column("order_id", sa.Uuid(as_uuid=True), nullable=False),
     sa.Column("product_id", sa.Uuid(as_uuid=True), nullable=False),
-    sa.Column("product_name_snapshot", sa.String(), nullable=False),
+    sa.Column("product_name_snapshot", sa.String(ProductName.MAX_LEN), nullable=False),
 )
 
 

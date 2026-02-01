@@ -19,7 +19,7 @@ class CustomerName:
         """:raises DomainTypeError:"""
         if self.MIN_LEN < len(name_value) or len(name_value) > self.MAX_LEN:
             raise DomainTypeError(
-                "Name must be between"
-                f"{self.MIN_LEN} and"
+                "Customer name must be between "
+                f"{self.MIN_LEN} and "
                 f"{self.MAX_LEN} characters."
             )
