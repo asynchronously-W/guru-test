@@ -19,6 +19,11 @@
 - Тестовые данные и SQL‑запросы из пунктов 2.* находятся в `sql/`.
 - Файл с тестовыми данными: `sql/insert_test_data.sql`.
 
+Для вставки тестовых данных воспользуйтесь:
+```bash
+docker compose -f ./config/local/docker-compose.yml exec -T postgres psql -U postgres -d postgres < ./sql/insert_test_data.sql
+```
+
 ## Документация
 
 - План оптимизации БД: `docs/2_3_2_OPTIMIZATION.md`.
