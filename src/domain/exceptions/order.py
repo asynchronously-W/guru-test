@@ -6,3 +6,8 @@ class OrderNotFoundByIdError(DomainError):
     def __init__(self, order_id: OrderId) -> None:
         msg = f"Order '{order_id.value}' is not found."
         super().__init__(msg)
+
+class OrderPlaceIsNotPermittedError(DomainError):
+    def __init__(self, order_id: OrderId) -> None:
+        msg = f"Order `{order_id.value}` place is not permitted."
+        super().__init__(msg)

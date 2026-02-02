@@ -8,6 +8,12 @@ from src.domain.exceptions.base import DomainTypeError
 class OrderTotalPrice:
     value: Decimal
 
+    def __new__(cls, value: Decimal | None) -> OrderTotalPrice | None:
+        if value is None:
+            return None
+        
+        return super().__new__(cls)
+
     def __post_init__(self) -> None:
         """:raises DomainTypeError:"""
         self._validate_total_price_non_negative(self.value)

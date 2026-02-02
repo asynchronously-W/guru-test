@@ -1,4 +1,6 @@
 from src.domain.entities.order_line import OrderLine
+from src.domain.enums.order_status import OrderStatus
+from src.domain.exceptions.order_line import QuantityChangeIsNotPermitted
 from src.domain.ports.order_line_id_generator import OrderLineIdGenerator
 from src.domain.value_objects.order_id import OrderId
 from src.domain.value_objects.order_line_quantity import OrderLineQuantity
@@ -14,7 +16,11 @@ class OrderLineService:
         self,
         order_line: OrderLine,
         quantity: OrderLineQuantity,
+        order_status: OrderStatus
     ) -> None:
+        if order_status != OrderStatus.DRAFT:
+            raise QuantityChangeIsNotPermitted(order_line.id_)
+
         order_line.quantity = quantity
 
     def create_order_line(
