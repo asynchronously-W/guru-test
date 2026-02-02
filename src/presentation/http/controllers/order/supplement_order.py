@@ -15,6 +15,7 @@ from src.application.commands.supplement_order import (
 )
 from src.domain.exceptions.base import DomainTypeError
 from src.domain.exceptions.order import OrderNotFoundByIdError
+from src.domain.exceptions.order_line import QuantityChangeIsNotPermitted
 from src.domain.exceptions.product import ProductOutOfStockError, ProductNotFoundByIdError
 from src.infrastructure.exceptions.gateway import DataMapperError, ReaderError
 from src.presentation.http.errors.callbacks import log_error, log_info
@@ -29,7 +30,7 @@ def create_supplement_order_router() -> ErrorAwareRouter:
     router = ErrorAwareRouter()
 
     @router.post(
-        "/{order_id}/items",
+        "/{order_id}/products",
         error_map={
             DataMapperError: rule(
                 status=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -45,6 +46,7 @@ def create_supplement_order_router() -> ErrorAwareRouter:
             OrderNotFoundByIdError: status.HTTP_404_NOT_FOUND,
             ProductNotFoundByIdError: status.HTTP_404_NOT_FOUND,
             ProductOutOfStockError: status.HTTP_409_CONFLICT,
+            QuantityChangeIsNotPermitted: status.HTTP_409_CONFLICT,
         },
         default_on_error=log_info,
         status_code=status.HTTP_200_OK,

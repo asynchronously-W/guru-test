@@ -50,6 +50,7 @@ class SupplementOrderCommand:
         :raises OrderNotFoundByIdError:
         :raises ProductNotFoundByIdError:
         :raises ProductOutOfStockError:
+        :raises QuantityChangeIsNotPermitted:
         """
         order_id = OrderId(request_data.order_id)
         product_id = ProductId(request_data.product_id)
@@ -81,6 +82,7 @@ class SupplementOrderCommand:
             self._order_line_service.change_quantity(
                 order_line,
                 OrderLineQuantity(total_quantity_value),
+                order.status,
             )
         else:
             new_order_line = self._order_line_service.create_order_line(

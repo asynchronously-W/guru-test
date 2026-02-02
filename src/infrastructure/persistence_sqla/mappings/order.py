@@ -15,6 +15,7 @@ orders_table = sa.Table(
     sa.Column("customer_id", sa.UUID(as_uuid=True), nullable=False),
     sa.Column("status", sa.Enum(OrderStatus), nullable=False),
     sa.Column("total_price", sa.Numeric(precision=12, scale=2), nullable=True),
+    sa.Column("created_at", sa.DateTime(timezone=True), nullable=False),
 )
 
 
@@ -27,6 +28,7 @@ def map_orders_table() -> None:
             "customer_id": composite(CustomerId, orders_table.c.customer_id),
             "status": orders_table.c.status,
             "total_price": composite(OrderTotalPrice, orders_table.c.total_price),
+            "created_at": orders_table.c.created_at
         },
         column_prefix="_",
     )
